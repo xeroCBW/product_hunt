@@ -11,6 +11,7 @@
         {% csrf_token %}
 
         <h2>产品发布页面</h2>
+        <p style="color: red">{{ msg }}</p>
         <p>app名称<input type="text" name="app_name"></p>
         介绍<textarea cols="100" rows="10" name="introduction"></textarea>
         <p>链接<input type="text" name="link"></p>
