@@ -1,10 +1,23 @@
 {% extends "theme.html" %}
 
-
-
 {% block content %}
+    
+    <h2>产品列表</h2>
 
+    <div class="row row-cols-1 row-cols-md-3">\
+       {% for p in products.all %}
 
-   <p>product_lists content</p>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="{{ p.icon.url }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ p.app_name }}</h5>
+                <p class="card-text">{{ p.introduction }}</p>
+                 <a href="{{ p.link }}" class="btn btn-primary">前往</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}
