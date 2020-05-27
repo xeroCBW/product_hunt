@@ -3,6 +3,24 @@
 
 {% block content %}
 
-    <h1>这是注册页面</h1>
+
+
+   <form action="{% url '登录页面' %}" method="POST" align = 'center'>
+
+    {% csrf_token %}
+
+        <h2>login</h2>
+
+       <p style="color: red;">{{ msg }}</p>
+
+
+            <lable>用户名</lable><input type="text" name="username" placeholder="请输入用户名">
+            <br>
+            <label>密  码</label><input type="password" name="password" placeholder="请输入密码">
+            <br>
+            <input class="btn-primary" type="submit" value="提交">
+
+    </form>
+
 
 {% endblock %}

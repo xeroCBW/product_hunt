@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from django.contrib import auth
 # Create your views here.
 
 def register(request):
@@ -19,12 +20,21 @@ def register(request):
             return redirect('主页')
 
 
-
-
-
-
-
-
-
 def login(request):
-    return render(request,'login.html')
+    if request.method=='GET':
+        return render(request,'login.html')
+    elif request.method == 'POST':
+        user_nmae = request.POST['username']
+        pass_word = request.POST['password']
+        user = auth.authenticate(username=user_nmae,password=pass_word)
+        if user is None:
+            return render(request,'login.html',{'msg':'用户名或者密码错误'})
+        else:
+            # 回到主页
+            auth.login(request,user)
+            return redirect('主页')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('主页')

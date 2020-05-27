@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', products.views.products_list,name='主页'),
     path('account/', include('account.urls')),
+    path('products/', include('products.urls')),
 ]

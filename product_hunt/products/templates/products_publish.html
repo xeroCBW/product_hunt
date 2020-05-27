@@ -1,0 +1,24 @@
+{% extends "theme.html" %}
+
+
+{% block content %}
+
+
+
+
+    <form method="POST" align = 'center' enctype="multipart/form-data" action="{% url '发布页面' %}">
+
+        {% csrf_token %}
+
+        <h2>产品发布页面</h2>
+        <p>app名称<input type="text" name="app_name"></p>
+        介绍<textarea cols="100" rows="10" name="introduction"></textarea>
+        <p>链接<input type="text" name="link"></p>
+        <p>图标<input type="file" name="icon"></p>
+        <p>大图<input type="file" name="pic"></p>
+        <input type="submit" value="发布">
+    </form>
+
+
+
+{% endblock %}
